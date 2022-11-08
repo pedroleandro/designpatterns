@@ -26,14 +26,4 @@ class FurnitureSector extends Order
     {
         $this->sectorName = $sectorName;
     }
-
-    public function calculateCommonShipping(): float
-    {
-        return $this->getValue() * 0.05;
-    }
-
-    public function calculateExpressShipping(): float
-    {
-        throw new \Exception("Frete expresso indisponível para o " . $this->getSectorName());
-    }
 }

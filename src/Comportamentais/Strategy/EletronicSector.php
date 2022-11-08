@@ -26,14 +26,4 @@ class EletronicSector extends Order
     {
         $this->sectorName = $sectorName;
     }
-
-    public function calculateCommonShipping(): float
-    {
-        return $this->getValue() * 0.05;
-    }
-
-    public function calculateExpressShipping(): float
-    {
-        return $this->getValue() * 0.1;
-    }
 }

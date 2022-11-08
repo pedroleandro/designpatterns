@@ -6,6 +6,7 @@ abstract class Order
 {
 
     private float $value;
+    private Shipping $typeOfShipping;
 
     /**
      * @return float
@@ -23,8 +24,25 @@ abstract class Order
         $this->value = $value;
     }
 
-    abstract public function calculateCommonShipping(): float;
+    /**
+     * @return Shipping
+     */
+    public function getTypeOfShipping(): Shipping
+    {
+        return $this->typeOfShipping;
+    }
 
-    abstract public function calculateExpressShipping(): float;
+    /**
+     * @param Shipping $typeOfShipping
+     */
+    public function setTypeOfShipping(Shipping $typeOfShipping): void
+    {
+        $this->typeOfShipping = $typeOfShipping;
+    }
+
+    public function calculateShipping(): float
+    {
+        return $this->getTypeOfShipping()->calculate($this->getValue());
+    }
 
 }
