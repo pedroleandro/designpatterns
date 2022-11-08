@@ -2,7 +2,7 @@
 
 namespace DesignPatterns\Comportamentais\Strategy;
 
-class Order
+abstract class Order
 {
 
     private float $value;
@@ -23,14 +23,8 @@ class Order
         $this->value = $value;
     }
 
-    public function calculateCommonShipping(): float
-    {
-        return $this->value * 0.05;
-    }
+    abstract public function calculateCommonShipping(): float;
 
-    public function calculateExpressShipping(): float
-    {
-        return $this->value * 0.1;
-    }
+    abstract public function calculateExpressShipping(): float;
 
 }
